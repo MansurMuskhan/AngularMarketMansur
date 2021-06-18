@@ -1,0 +1,98 @@
+<div class="container">
+  
+  <ul>
+  <h1 class="title">Интернет-магазин Мансур</h1>
+  </ul>
+  
+ 
+  <ul class="btnPanel">
+    <button class="btn btn-info" (click)="setPage(0)">Весь каталог</button>
+
+    <div>
+      <button *ngFor="let i of categoryList; let n = index" class="btn btn-warning" (click)="setPage(1,n+1)">{{i.name}}</button>
+    </div>
+    
+    <button class="btn btn-info" (click)="setPage(2)">Корзина</button>
+  </ul>
+</div>
+
+<div [ngSwitch]="currentPage">
+
+<div *ngSwitchCase="0">
+  <div class="container">
+
+    <ul>
+        
+        <div *ngFor="let i of cartList" class="good-item">
+            <div>
+                <h3>Код товара {{i.id}}</h3>
+                <h2>{{i.name}}</h2>
+                <p>категория {{i.category}}</p>
+            </div>
+            <div class="right">
+                <h3>{{i.price}}  руб.</h3>
+                <button class="btn btn-info" (click)="add(i.id)">Добавить в корзину</button>
+            </div>
+            
+        </div>
+  </ul>
+  </div>
+</div>
+
+
+
+<div *ngSwitchCase="1">
+  <div class="container">
+
+    <ul>
+        
+        <div *ngFor="let i of getCartsCategory(); let n = index" class="good-item">
+            <div>
+                <h3>Код товара {{i.id}}</h3>
+                <h2>{{i.name}}</h2>
+                <p>категория {{i.category}}</p>
+            </div>
+            <div class="right">
+                <h3>{{i.price}}  руб.</h3>
+                <button class="btn btn-info" (click)="add(i.id)">Добавить в корзину</button>
+            </div>
+            
+        </div>
+  </ul>
+  </div>
+</div>
+
+
+
+<div *ngSwitchCase="2">
+  <div class="container">
+
+    <ul>
+        
+        <div *ngFor="let i of getDataBasket()" class="good-item">
+            <div>
+                <h3>Код товара {{i.id}}</h3>
+                <h2>{{i.name}}</h2>
+                <p>категория {{i.category}}</p>
+            </div>
+            <div class="right">
+                <h3>{{i.price}}  руб.</h3>
+                <button class="btn btn-warning" (click)="remove(i.id)">Удалить</button>
+            </div>
+            
+        </div>
+   </ul>
+
+   <ul style="display: flex; justify-content: flex-end;">
+    <h2 style="border: solid 1px gray; padding: 15px; border-radius: 3px;" *ngIf="BasketAmount>0">Сумма: {{BasketAmount}}</h2> 
+   </ul>
+
+  </div>
+</div>
+
+</div>
+
+
+
+
+

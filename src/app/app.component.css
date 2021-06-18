@@ -1,0 +1,61 @@
+body {
+    font-family: Ubuntu;
+}
+
+.btnPanel{
+    display:flex;
+    justify-content: space-between;
+}
+.title{
+    padding: 10px;
+    text-align: center;
+    border: solid 1px rgb(65, 154, 189);
+    border-radius: 3px;
+    background: linear-gradient(#8deeec, #69c2e6);
+}
+.btnPanel div > * {
+    margin: 0 10px;
+} 
+/* Каталог товаров */
+
+.good-item {
+    margin: 5px 0;
+    padding: 5px;
+    border: solid 1px gray;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.good-item div {
+    height: 70px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.good-item div > * {
+    margin: 0 20px;
+} 
+
+h2{margin-bottom: 20px;}
+
+/* Корзина */
+
+.cart-item__btn-dec-count {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.cart-item__btn-inc-count {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.cart-item__btn-remove {
+    cursor: pointer;
+}
+
+
